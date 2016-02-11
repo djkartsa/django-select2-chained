@@ -10,7 +10,6 @@ python:
 addons:
   apt:
     packages:
-      - python3-enchant
       - python2-enchant
       - graphviz
 env:
