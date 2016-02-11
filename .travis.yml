@@ -7,8 +7,6 @@ services:
   - memcached
 python:
   - "2.7"
-  - "3.4"
-  - "3.5"
 addons:
   apt:
     packages:
@@ -29,7 +27,6 @@ install:
   - pip install -e git+https://github.com/djkartsa/django-select2@4.2.2-fix_for_inline_formsets#egg=django-select2-4.2.2b0
   - pip install -r requirements_dev.txt
   - if [[ $TRAVIS_PYTHON_VERSION == 2* ]] || [[ $TRAVIS_PYTHON_VERSION == pypy ]]; then pip install python-memcached; fi
-  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]] || [[ $TRAVIS_PYTHON_VERSION == pypy3 ]]; then pip install python3-memcached; fi
   - pip install $DJANGO
   - pip install coveralls
   - sh -e /etc/init.d/xvfb start
