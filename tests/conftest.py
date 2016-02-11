@@ -6,7 +6,6 @@ import string
 from itertools import chain
 
 import pytest
-
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 
