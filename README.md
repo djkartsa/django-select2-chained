@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/djkartsa/django-select2-chained.svg?branch=master)](https://travis-ci.org/djkartsa/django-select2-chained)
+
 Django-Select2-Chained
 ==============
 
