@@ -25,18 +25,6 @@ Fields
 
 import logging
 
-from .fields import (
-    ChainedAutoModelSelect2FieldMixin,
-    ChainedAutoModelSelect2Field,
-    RequestSpecificAutoModelSelect2Field,
-    ChainedRequestSpecificAutoModelSelect2Field
-)
-from .widgets import ChainedAutoSelect2Widget, PrepopulatedSelect2Widget
-
-__all__ = ('ChainedAutoModelSelect2FieldMixin', 'ChainedAutoModelSelect2Field',
-           'RequestSpecificAutoModelSelect2Field', 'ChainedRequestSpecificAutoModelSelect2Field',
-           'ChainedAutoSelect2Widget', 'PrepopulatedSelect2Widget')
-
 logger = logging.getLogger(__name__)
 
 __version__ = u"0.1"
