@@ -33,9 +33,9 @@ from .fields import (
 )
 from .widgets import ChainedAutoSelect2Widget, PrepopulatedSelect2Widget
 
-__all__ = ['ChainedAutoModelSelect2FieldMixin', 'ChainedAutoModelSelect2Field',
+__all__ = ('ChainedAutoModelSelect2FieldMixin', 'ChainedAutoModelSelect2Field',
            'RequestSpecificAutoModelSelect2Field', 'ChainedRequestSpecificAutoModelSelect2Field',
-           'ChainedAutoSelect2Widget', 'PrepopulatedSelect2Widget']
+           'ChainedAutoSelect2Widget', 'PrepopulatedSelect2Widget')
 
 logger = logging.getLogger(__name__)
 

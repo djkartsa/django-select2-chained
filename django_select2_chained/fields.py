@@ -1,6 +1,4 @@
-"""
-Contains all the Django fields for select2-chained.
-"""
+"""Contains all the Django fields for select2-chained."""
 import copy
 import logging
 
@@ -8,25 +6,28 @@ from django_select2.fields import NO_ERR_RESP, AutoModelSelect2Field
 
 from .widgets import ChainedAutoSelect2Widget
 
-__all__ = [
+__all__ = (
     'ChainedAutoModelSelect2FieldMixin',
     'ChainedAutoModelSelect2Field',
     'RequestSpecificAutoModelSelect2Field',
     'ChainedRequestSpecificAutoModelSelect2Field'
-]
+)
 
 logger = logging.getLogger(__name__)
 
 
 class RequestSpecificAutoModelSelect2Field(AutoModelSelect2Field):
     """
-    An AutoHeavy field whose queryset is determined from the current request parameter by get_queryset method
-    instead of the class-level queryset property. Allows using the same AutoHeavy field instance between multiple
-    requests and having request-specific data.
+    An AutoHeavy field whose queryset is determined from the current request parameter.
+
+    This is done by using get_queryset method instead of the class-level queryset property.
+    Allows using the same AutoHeavy field instance between multiple requests and having request-specific data.
     """
+
     def get_queryset(self, request):
         """
         Method that determines the queryset from the current request.
+
         Must be implemented.
         """
         raise NotImplementedError("get_queryset() must be implemented.")
@@ -68,11 +69,15 @@ class RequestSpecificAutoModelSelect2Field(AutoModelSelect2Field):
 class ChainedAutoModelSelect2FieldMixin(object):
     """
     A mixin for subclasses of AutoModelSelect2Field that adds chaining functionality.
+
     The attached field gets filtered by another field in the form, specified by the chain_field attribute.
     The selected option in the chain_field limits the queryset in the current field.
     """
+
     def __init__(self, *args, **kwargs):
         """
+        Init method.
+
         :param chain_field: related field name
         :param model_field: real foreign key field name in the model
         :param allow_empty: if true, displays all options when related field is empty
@@ -95,6 +100,7 @@ class ChainedAutoModelSelect2FieldMixin(object):
         super(ChainedAutoModelSelect2FieldMixin, self).__init__(*args, **kwargs)
 
     def prepare_qs_params(self, request, search_term, search_fields):
+        """Prepare queryset parameters for filtering."""
         params = super(ChainedAutoModelSelect2FieldMixin, self).prepare_qs_params(request, search_term, search_fields)
         chain_field_id = request.GET.get(self.chain_field, None)
         if chain_field_id:
@@ -105,13 +111,13 @@ class ChainedAutoModelSelect2FieldMixin(object):
 
 
 class ChainedAutoModelSelect2Field(ChainedAutoModelSelect2FieldMixin, AutoModelSelect2Field):
-    """
-    An :py:class:`AutoModelSelect2Field` with chaining functionality.
-    """
+    """An :py:class:`AutoModelSelect2Field` with chaining functionality."""
+
+    pass
 
 
 class ChainedRequestSpecificAutoModelSelect2Field(ChainedAutoModelSelect2FieldMixin,
                                                   RequestSpecificAutoModelSelect2Field):
-    """
-    A :py:class:`RequestSpecificAutoModelSelect2Field` with chaining functionality.
-    """
+    """A :py:class:`RequestSpecificAutoModelSelect2Field` with chaining functionality."""
+
+    pass

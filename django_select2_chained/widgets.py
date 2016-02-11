@@ -1,6 +1,4 @@
-"""
-Contains all the Django widgets for select2-chained.
-"""
+"""Contains all the Django widgets for select2-chained."""
 
 import logging
 
@@ -8,18 +6,26 @@ from django.utils.safestring import mark_safe
 from django_select2.util import JSFunctionInContext
 from django_select2.widgets import AutoHeavySelect2Widget
 
-__all__ = [
+__all__ = (
     'PrepopulatedSelect2Widget', 'ChainedAutoSelect2Widget'
-]
+)
 
 logger = logging.getLogger(__name__)
 
 
 class PrepopulatedSelect2Widget(AutoHeavySelect2Widget):
     """
-    A :py:class:`django_select2.widgets.AutoHeavySelect2Widget` that allows sending an empty search query to the server.
+    A prepopulated :py:class:`django_select2.widgets.AutoHeavySelect2Widget`.
+
+    It allows sending empty search queries to the server.
     """
+
     def __init__(self, **kwargs):
+        """
+        Init method.
+
+        :keyword select2_options: A dictionary containing select2 options.
+        """
         if not isinstance(kwargs.get('select2_options'), dict):
             kwargs['select2_options'] = {}
 
@@ -34,15 +40,21 @@ class PrepopulatedSelect2Widget(AutoHeavySelect2Widget):
 
 
 class ChainedAutoSelect2Widget(PrepopulatedSelect2Widget):
-    """
-    A :py:class:`PrepopulatedSelect2Widget` to be used with chained fields.
-    """
+    """A :py:class:`PrepopulatedSelect2Widget` to be used with chained fields."""
+
     def __init__(self, *args, **kwargs):
+        """
+        Init method.
+
+        :keyword chain_field: Name of the field in the form.
+        :keyword model_field: Name of the field in the model.
+        """
         self.chain_field = kwargs.pop('chain_field', None)
         self.model_field = kwargs.pop('model_field', None)
         super(ChainedAutoSelect2Widget, self).__init__(*args, **kwargs)
 
     def render(self, name, value, attrs=None, choices=()):
+        """Render the widget."""
         if not self.chain_field or not self.model_field:
             raise NotImplementedError(u"Chain field and model field must be specified.")
         if len(name.split('-')) > 1:  # formset
@@ -61,5 +73,6 @@ class ChainedAutoSelect2Widget(PrepopulatedSelect2Widget):
         js = ['/static/js/select2_chained.js']
 
     def init_options(self):
+        """Initialize widget options."""
         self.options['ajax']['data'] = JSFunctionInContext('django_select2_chained.extra_url_params')
         self.options['chain_field'] = self.chain_field
