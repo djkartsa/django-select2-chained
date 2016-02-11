@@ -24,25 +24,19 @@ Fields
 """
 
 import logging
+
+from .fields import (
+    ChainedAutoModelSelect2FieldMixin,
+    ChainedAutoModelSelect2Field,
+    RequestSpecificAutoModelSelect2Field,
+    ChainedRequestSpecificAutoModelSelect2Field
+)
+from .widgets import ChainedAutoSelect2Widget, PrepopulatedSelect2Widget
+
+__all__ = ['ChainedAutoModelSelect2FieldMixin', 'ChainedAutoModelSelect2Field',
+           'RequestSpecificAutoModelSelect2Field', 'ChainedRequestSpecificAutoModelSelect2Field',
+           'ChainedAutoSelect2Widget', 'PrepopulatedSelect2Widget']
+
 logger = logging.getLogger(__name__)
 
 __version__ = u"0.1"
-
-try:
-    from django.conf import settings
-    if logger.isEnabledFor(logging.DEBUG):
-        logger.debug("Django found.")
-    if settings.configured:
-        from .widgets import ChainedAutoSelect2Widget, PrepopulatedSelect2Widget
-        from .fields import (
-            ChainedAutoModelSelect2FieldMixin,
-            ChainedAutoModelSelect2Field,
-            RequestSpecificAutoModelSelect2Field,
-            ChainedRequestSpecificAutoModelSelect2Field
-        )
-
-        if logger.isEnabledFor(logging.DEBUG):
-            logger.debug("Django found and fields and widgets loaded.")
-except ImportError:
-    if logger.isEnabledFor(logging.INFO):
-        logger.info("Django not found.")

@@ -4,7 +4,8 @@ from django.conf.urls import include, patterns, url
 from .forms import RequestSpecificForm
 from .views import TemplateFormView, heavy_data_1, heavy_data_2
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^request_specific/$',
         TemplateFormView.as_view(form_class=RequestSpecificForm), name='request_specific'),
     # url(r'^heavy_select2_widget/$',

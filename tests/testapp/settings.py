@@ -171,7 +171,7 @@ LOGGING = {
 
 AUTO_RENDER_SELECT2_STATICS = False
 
-#GENERATE_RANDOM_SELECT2_ID = True
+# GENERATE_RANDOM_SELECT2_ID = True
 
 ##
 # To test for multiple processes in development system w/o WSGI, runserver at
@@ -182,7 +182,7 @@ AUTO_RENDER_SELECT2_STATICS = False
 # you should see a message like - "Id 7:2013-03-01 14:49:18.490212 not found in
 # this process. Looking up in remote server.", in console if you have debug enabled.
 ##
-#ENABLE_SELECT2_MULTI_PROCESS_SUPPORT = True
-#SELECT2_MEMCACHE_HOST = '127.0.0.1' # Uncomment to use memcached too
-#SELECT2_MEMCACHE_PORT = 11211       # Uncomment to use memcached too
-#SELECT2_MEMCACHE_TTL = 9           # Default 900
+# ENABLE_SELECT2_MULTI_PROCESS_SUPPORT = True
+# SELECT2_MEMCACHE_HOST = '127.0.0.1' # Uncomment to use memcached too
+# SELECT2_MEMCACHE_PORT = 11211       # Uncomment to use memcached too
+# SELECT2_MEMCACHE_TTL = 9           # Default 900
