@@ -6,7 +6,6 @@ import json
 import pytest
 from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_text
-
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import ui
 
