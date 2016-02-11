@@ -1,4 +1,4 @@
 include *.txt *.md
 recursive-include django_select2_chained/static *.*
 recursive-exclude django_select2_chained/static .DS_Store
-exclude Internal_Notes.md
+exclude NOTES.md
