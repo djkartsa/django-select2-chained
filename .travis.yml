@@ -37,7 +37,6 @@ script:
   - isort --check-only --recursive --diff .
   - flake8 --jobs=2 .
   - pep257 --explain --source --count django_select2_chained
-  - (cd docs; make spelling)
   - coverage run --source=django_select2_chained -m py.test tests
 after_success:
   - coveralls
