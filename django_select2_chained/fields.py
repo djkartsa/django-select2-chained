@@ -4,7 +4,7 @@ Contains all the Django fields for select2-chained.
 import copy
 import logging
 
-from django_select2.fields import AutoModelSelect2Field, NO_ERR_RESP
+from django_select2.fields import NO_ERR_RESP, AutoModelSelect2Field
 
 from .widgets import ChainedAutoSelect2Widget
 

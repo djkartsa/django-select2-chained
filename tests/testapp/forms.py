@@ -1,5 +1,9 @@
 from django import forms
-from .fields import RequestSpecificCompanySelect2Field, CompanySelect2Field, EmployeeSelect2Field
+
+from .fields import (
+    CompanySelect2Field, EmployeeSelect2Field,
+    RequestSpecificCompanySelect2Field
+)
 
 
 class RequestSpecificForm(forms.Form):

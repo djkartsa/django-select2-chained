@@ -1,10 +1,11 @@
 import codecs
 import os
 import sys
+from fnmatch import fnmatchcase
+
+from setuptools import setup
 
 from distutils.util import convert_path
-from fnmatch import fnmatchcase
-from setuptools import setup, find_packages
 
 
 def read(fname):

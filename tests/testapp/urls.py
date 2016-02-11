@@ -1,10 +1,7 @@
 # -*- conding:utf-8 -*-
-from django.conf.urls import include, url, patterns
+from django.conf.urls import include, patterns, url
 
-
-from .forms import (
-    RequestSpecificForm
-)
+from .forms import RequestSpecificForm
 from .views import TemplateFormView, heavy_data_1, heavy_data_2
 
 urlpatterns = patterns('',

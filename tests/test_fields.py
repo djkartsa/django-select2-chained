@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
+
 import json
-from django.utils.encoding import smart_text
 
 import pytest
 from django.core.urlresolvers import reverse
+from django.utils.encoding import smart_text
+
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import ui
-
 from tests.testapp import forms
 
 

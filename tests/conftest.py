@@ -1,11 +1,12 @@
 # -*- coding:utf-8 -*-
 from __future__ import absolute_import, print_function, unicode_literals
 
-from itertools import chain
 import random
 import string
+from itertools import chain
 
 import pytest
+
 from selenium import webdriver
 from selenium.common.exceptions import WebDriverException
 

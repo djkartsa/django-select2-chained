@@ -1,11 +1,10 @@
 from collections import Iterable
+
 from django_select2 import AutoModelSelect2Field
-from django.db.models.query import QuerySet
+
 from django_select2_chained import (
-    PrepopulatedSelect2Widget,
-    RequestSpecificAutoModelSelect2Field,
-    ChainedAutoModelSelect2Field,
-    ChainedRequestSpecificAutoModelSelect2Field
+    ChainedAutoModelSelect2Field, ChainedRequestSpecificAutoModelSelect2Field,
+    PrepopulatedSelect2Widget, RequestSpecificAutoModelSelect2Field
 )
 
 from .models import Company, Employee

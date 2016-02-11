@@ -4,9 +4,9 @@ Contains all the Django widgets for select2-chained.
 
 import logging
 
-from django_select2.widgets import AutoHeavySelect2Widget
-from django_select2.util import JSFunctionInContext
 from django.utils.safestring import mark_safe
+from django_select2.util import JSFunctionInContext
+from django_select2.widgets import AutoHeavySelect2Widget
 
 __all__ = [
     'PrepopulatedSelect2Widget', 'ChainedAutoSelect2Widget'
