@@ -1,0 +1,19 @@
+
+testapp/tt.py
+
+*.pyc
+
+Django_Select2_Chained.egg-info
+Django_Select2_Chained_Py3.egg-info
+dist
+build
+
+docs/_build
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+venv
+test.db

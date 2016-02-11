@@ -1,0 +1,43 @@
+language: python
+sudo: false
+cache:
+  - apt
+  - pip
+services:
+  - memcached
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+addons:
+  apt:
+    packages:
+      - python3-enchant
+      - python2-enchant
+      - graphviz
+env:
+  global:
+    - DISPLAY=:99.0
+  matrix:
+    - DJANGO="Django<1.6,>=1.4"
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: DJANGO="-e git+https://github.com/django/django.git@master#egg=Django"
+install:
+  - pip install --upgrade pip
+  - pip install -e git+https://github.com/djkartsa/django-select2@4.2.2-fix_for_inline_formsets#egg=django-select2-4.2.2b0
+  - pip install -r requirements_dev.txt
+  - if [[ $TRAVIS_PYTHON_VERSION == 2* ]] || [[ $TRAVIS_PYTHON_VERSION == pypy ]]; then pip install python-memcached; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]] || [[ $TRAVIS_PYTHON_VERSION == pypy3 ]]; then pip install python3-memcached; fi
+  - pip install $DJANGO
+  - pip install coveralls
+  - sh -e /etc/init.d/xvfb start
+script:
+  - isort --check-only --recursive --diff .
+  - flake8 --jobs=2 .
+  - pep257 --explain --source --count django_select2_chained
+  - (cd docs; make spelling)
+  - coverage run --source=django_select2_chained -m py.test
+after_success:
+  - coveralls
