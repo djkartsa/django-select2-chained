@@ -35,7 +35,6 @@ class PrepopulatedSelect2Widget(AutoHeavySelect2Widget):
             # This is needed, otherwise search field will be hidden by select2.
             'minimumResultsForSearch': 0,
         })
-        print kwargs
         super(PrepopulatedSelect2Widget, self).__init__(**kwargs)
 
 
