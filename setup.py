@@ -106,7 +106,7 @@ PACKAGE = "django_select2_chained"
 NAME = "Django-Select2-Chained"
 DESCRIPTION = "Chainable fields for Django-Select2"
 AUTHOR = "Karim Amzil"
-AUTHOR_EMAIL = "djkartsa@users.noreply.github.com"
+AUTHOR_EMAIL = "djkartsa@gmail.com"
 URL = "https://github.com/djkartsa/django-select2-chained"
 VERSION = __import__(PACKAGE).__version__
 
